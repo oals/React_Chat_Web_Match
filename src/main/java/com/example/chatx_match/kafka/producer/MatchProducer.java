@@ -10,8 +10,13 @@ public class MatchProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(String topic, String message) {
-        kafkaTemplate.send(topic, message);
-        System.out.println("Produced: " + message);
+    public void sendMessage(String topic, String memberId) {
+        kafkaTemplate.send(topic, memberId, memberId);
+        System.out.println("메세지 보냄: " + memberId);
     }
+
+    public void cancelMatchRequest(String userId) {
+        kafkaTemplate.send("match-events", userId, null);
+    }
+
 }
