@@ -7,7 +7,7 @@
 
     <insert id="insertChatRoom" parameterType="com.example.chatx_match.dto.ChatRoomDto">
 
-    <selectKey keyProperty="chatRoomId" resultType="Long" order="AFTER">
+        <selectKey keyProperty="chatRoomId" resultType="Long" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
 

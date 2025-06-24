@@ -29,7 +29,6 @@ public class MatchConsumer {
 
         System.out.println("메세지 받음: " + userId);
 
-
         if (payload == null) {
             return;
         }
@@ -40,12 +39,12 @@ public class MatchConsumer {
                 String matched = String.join(" vs ", match);
                 matchProducer.sendMessage("match-results", matched);
 
-                Long chatRoomId = matchService.createChatRoom();
+                ChatRoomDto chatRoomDto = ChatRoomDto.builder().build();
+                matchService.createChatRoom(chatRoomDto);
+                chatRoomDto.setChatRoomMemberList(match);
 
-                ChatRoomDto chatRoomDto = ChatRoomDto.builder()
-                        .chatRoomId(chatRoomId)
-                        .chatRoomMemberList(match)
-                        .build();
+                System.out.println("방생성");
+                System.out.println(chatRoomDto);
 
                 matchService.insertChatRoomMember(chatRoomDto);
 

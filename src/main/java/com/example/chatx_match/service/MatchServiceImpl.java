@@ -12,8 +12,8 @@ public class MatchServiceImpl implements MatchService{
     private final MatchDao matchDao;
 
     @Override
-    public Long createChatRoom() {
-        return matchDao.insertChatRoom();
+    public Long createChatRoom(ChatRoomDto chatRoomDto) {
+        return matchDao.insertChatRoom(chatRoomDto);
     }
 
     @Override
