@@ -7,6 +7,4 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface MatchDao {
     Long insertChatRoom(ChatRoomDto chatRoomDto);
-
-    void insertChatRoomMember(@Param("chatRoomId") Long chatRoomId, @Param("memberId") String memberId);
 }

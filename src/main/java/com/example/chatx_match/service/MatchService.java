@@ -6,5 +6,4 @@ public interface MatchService {
 
     Long createChatRoom(ChatRoomDto chatRoomDto);
 
-    void insertChatRoomMember(ChatRoomDto chatRoomDto);
 }

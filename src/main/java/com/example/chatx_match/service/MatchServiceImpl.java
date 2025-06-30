@@ -16,11 +16,4 @@ public class MatchServiceImpl implements MatchService{
         return matchDao.insertChatRoom(chatRoomDto);
     }
 
-    @Override
-    public void insertChatRoomMember(ChatRoomDto chatRoomDto) {
-
-        for (String memberId : chatRoomDto.getChatRoomMemberList()) {
-            matchDao.insertChatRoomMember(chatRoomDto.getChatRoomId(), memberId);
-        }
-    }
 }

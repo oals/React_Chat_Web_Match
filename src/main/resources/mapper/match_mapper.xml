@@ -18,16 +18,4 @@
         )
     </insert>
 
-    <insert id="insertChatRoomMember" parameterType="map">
-        INSERT INTO chat_room_member (
-            chat_room_id,
-            member_id
-        ) VALUES (
-            #{chatRoomId},
-            #{memberId}
-        )
-    </insert>
-
-
-
 </mapper>

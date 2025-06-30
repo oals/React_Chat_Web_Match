@@ -43,11 +43,6 @@ public class MatchConsumer {
                 matchService.createChatRoom(chatRoomDto);
                 chatRoomDto.setChatRoomMemberList(match);
 
-                System.out.println("방생성");
-                System.out.println(chatRoomDto);
-
-                matchService.insertChatRoomMember(chatRoomDto);
-
                 match.forEach(uid -> {
                     System.out.println("소켓 전송 경로 : /topic/match/" + uid);
                     String destination = "/topic/match/" + uid;
