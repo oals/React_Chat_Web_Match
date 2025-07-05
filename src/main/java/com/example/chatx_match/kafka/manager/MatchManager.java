@@ -19,6 +19,12 @@ public class MatchManager {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final Set<String> waitingSet = ConcurrentHashMap.newKeySet();
 
+
+    public void cancelMatch(String userId){
+        waitingSet.remove(userId);
+        waitingQueue.remove(userId);
+    }
+
     public Optional<List<String>> tryMatch(String userId) {
         // 이미 대기 중인 유저라면 무시
         if (!waitingSet.add(userId)) {

@@ -28,8 +28,10 @@ public class MatchConsumer {
         String payload = record.value();
 
         System.out.println("메세지 받음: " + userId);
+        System.out.println("메세지 payload: " + payload);
 
         if (payload == null) {
+            matchManager.cancelMatch(userId);
             return;
         }
 
